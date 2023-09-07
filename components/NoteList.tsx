@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
@@ -14,7 +16,7 @@ export default async function NotesList() {
   // call api .then setNotes to the response data (array of notes) .catch log error message save to variable dont use useState
   let notes: NoteType[] = [];
   try {
-    const res = await fetch(`${apiUrl}/api/notes`, {
+    const res = await fetch(`/api/notes`, {
       cache: "no-cache",
     });
     const data = await res.json();
