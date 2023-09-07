@@ -32,7 +32,7 @@ export default async function NotesList() {
   return (
     <>
       {notes.length === 0 && (
-        <div className="text-center text-2xl">No notes found</div>
+        <div className="text-center text-2xl">No notes found..</div>
       )}
       {notes?.map((t) => (
         <div
