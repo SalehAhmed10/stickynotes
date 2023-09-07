@@ -4,7 +4,8 @@ export default function Home() {
   return (
     // <main className="flex min-h-screen ">
     <>
-      <NoteList />
+      {/* <NoteList /> */}
+      <h1>Notes</h1>
     </>
     // </main>
   );
