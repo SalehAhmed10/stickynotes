@@ -16,22 +16,34 @@ const getNotes = async () => {
       cache: "no-store",
     });
 
-    if (!res.ok) {
+    if (res.status === 500) {
       throw new Error("Failed to fetch topics");
     }
 
-    return res.json();
+    // if res is successful return res.json()
+
+    if (res.ok) {
+      return res.json();
+    }
   } catch (error) {
     console.log("Error loading topics: ", error);
   }
 };
 
-export default async function TopicsList() {
+export default async function NoteList() {
+  // const { notes } = await getNotes(); and check if notes is empty or not
+  // if empty show no notes found
+
   const { notes } = await getNotes();
+
+  if (notes?.length === 0) {
+    return <div className="text-center text-2xl">No notes found..</div>;
+  }
 
   return (
     <>
-      {notes.map((t) => (
+      <h1>Notes</h1>
+      {notes?.map((t) => (
         <div
           key={t._id}
           className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
