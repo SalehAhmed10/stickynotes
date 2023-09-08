@@ -5,8 +5,15 @@ import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
 
+interface NoteType {
+  _id: string;
+  title: string;
+  description: string;
+}
+
 export default function ListNote() {
-  const [notes, setNotes] = useState([]); // [] is the initial value
+  // [] is the initial value
+  const [notes, setNotes] = useState<NoteType[]>([]);
 
   const fetchData = async () => {
     const res = await fetch("/api/notes", {
