@@ -42,35 +42,7 @@ export default async function NoteList() {
   // const { notes } = await getNotes(); and check if notes is empty or not
   // if empty show no notes found
 
-  const { notes } = await getNotes();
-
-  if (notes?.length === 0) {
-    return <div className="text-center text-2xl">No notes found..</div>;
-  }
-
-  return (
-    <>
-      <h1>Notes</h1>
-      {notes?.map((t) => (
-        <div
-          key={t._id}
-          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
-        >
-          <div>
-            <h2 className="font-bold text-2xl">{t.title}</h2>
-            <div>{t.description}</div>
-          </div>
-
-          <div className="flex gap-2">
-            <RemoveBtn id={t._id} />
-            <Link href={`/editTopic/${t._id}`}>
-              <HiPencilAlt size={24} />
-            </Link>
-          </div>
-        </div>
-      ))}
-    </>
-  );
+  return <h1>Hello</h1>;
 }
 
 // export default async function NotesList() {
