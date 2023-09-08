@@ -1,3 +1,4 @@
+import ListNote from "@/components/ListNote";
 import NoteList from "@/components/NoteList";
 
 export default function Home() {
@@ -6,7 +7,8 @@ export default function Home() {
     <>
       <h1>Notes</h1>
       <h2>List</h2>
-      <NoteList />
+      {/* <NoteList /> */}
+      <ListNote />
     </>
     // </main>
   );
