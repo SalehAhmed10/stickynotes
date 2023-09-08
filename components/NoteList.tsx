@@ -12,9 +12,19 @@ const getNotes = async () => {
   const apiUrl = process.env.API_URL;
 
   try {
-    const res = await fetch(`${apiUrl}/api/notes`, {
-      cache: "no-store",
-    });
+    // const res = await fetch(`${apiUrl}/api/notes`, {
+    //   cache: "no-store",
+    // });
+    const res = await fetch(
+      `https://stickynote-crud-app.netlify.app/api/notes`,
+      {
+        cache: "no-store",
+        // alow CORS (Cross-Origin Resource Sharing)
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
 
     if (res.status === 500) {
       throw new Error("Failed to fetch topics");
@@ -22,9 +32,7 @@ const getNotes = async () => {
 
     // if res is successful return res.json()
 
-    if (res.ok) {
-      return res.json();
-    }
+    return res.json();
   } catch (error) {
     console.log("Error loading topics: ", error);
   }
