@@ -51,7 +51,7 @@ export default function ListNote() {
 
           <div className="flex gap-2">
             <RemoveBtn id={t._id} />
-            <Link href={`/editTopic/${t._id}`}>
+            <Link href={`/editNote/${t._id}`}>
               <HiPencilAlt size={24} />
             </Link>
           </div>
