@@ -32,12 +32,6 @@ export default function RemoveBtn({ id }) {
 
   return (
     <>
-      {isSuccess ? (
-        <ToastNotification
-          message="Note deleted successfully!"
-          type="success"
-        />
-      ) : null}
       <button className="text-red-400" onClick={removeNote}>
         <HiTrash size={24} />
       </button>

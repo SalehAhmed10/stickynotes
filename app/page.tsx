@@ -1,14 +1,14 @@
 import ListNote from "@/components/ListNote";
 import NoteList from "@/components/NoteList";
+import ShowAllNotes from "@/components/ShowAllNotes";
 
 export default function Home() {
   return (
     // <main className="flex min-h-screen ">
     <>
-      <h1>Notes</h1>
-      <h2>List</h2>
       {/* <NoteList /> */}
-      <ListNote />
+      <ShowAllNotes />
+      {/* <ListNote /> */}
     </>
     // </main>
   );

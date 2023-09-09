@@ -11,10 +11,16 @@ export async function POST(request) {
 }
 
 export async function GET() {
+  let status = "fetching notes";
   await connectMongoDB();
   const notes = await Note.find();
+  if (notes.length > 0) {
+    status = notes.length + " note found";
+  } else if (notes.length === 0) {
+    status = notes.length + " notes found";
+  }
 
-  return NextResponse.json({ notes });
+  return NextResponse.json({ notes, status }, { status: 200 });
 }
 
 export async function DELETE(req) {
@@ -23,5 +29,5 @@ export async function DELETE(req) {
   await connectMongoDB();
   await Note.findByIdAndDelete(id);
 
-  return NextResponse.json({ message: "Note Deleted " }, { status: 200 });
+  return NextResponse.json({ message: "Note Deleted" }, { status: 200 });
 }
