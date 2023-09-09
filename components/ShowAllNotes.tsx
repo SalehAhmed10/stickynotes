@@ -41,7 +41,11 @@ export default async function ShowAllNotes() {
 
   // console.log(notes);
 
-  const { data, statusCode } = await getAllNotes();
+  // const { data, statusCode } = await getAllNotes();
+
+  // destructure the data and statusCode from the returned object and typescript any
+  const { data, statusCode } = (await getAllNotes()) as any;
+
   console.log(data);
 
   // save the notes in the const as iterable array
